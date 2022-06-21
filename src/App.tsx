@@ -1,6 +1,4 @@
-import gql from "graphql-tag";
-import { useEffect } from "react";
-import { client } from "./lib/apollo";
+import { gql, useQuery } from "@apollo/client";
 
 const GET_LESSONS_QUERY = gql`
   query {
@@ -11,18 +9,22 @@ const GET_LESSONS_QUERY = gql`
   }
 `;
 
-function App() {
-  useEffect(() => {
-    client
-      .query({
-        query: GET_LESSONS_QUERY,
-      })
-      .then((response) => {
-        console.log(response.data);
-      });
-  }, []);
+interface Lesson {
+  id: string;
+  title: string;
+}
 
-  return <h1 className="text-5xl font-bold">Hello World</h1>;
+function App() {
+  const { data } = useQuery<{ lessons: Lesson[] }>(GET_LESSONS_QUERY);
+  console.log(data);
+
+  return (
+    <ul>
+      {data?.lessons.map((lesson) => {
+        return <li>{lesson.title}</li>;
+      })}
+    </ul>
+  );
 }
 
 export default App;
