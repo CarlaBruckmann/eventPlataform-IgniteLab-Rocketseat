@@ -33,6 +33,3 @@
 
 <br>
 
-### Próximos Passos:
- - Criar a Responsividade.
- - Estilizar a página de evento.  
