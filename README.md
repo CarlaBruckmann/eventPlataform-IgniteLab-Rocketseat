@@ -1,6 +1,4 @@
 # 🏆 Plataforma de Evento - Ignite Lab 2
-
-### 🌎 Deploy: [Plataforma de Evento](https://event-plataform-ignite-lab-rocketseat.vercel.app/)
  
 
 ##   :white_check_mark: Projeto:
